@@ -1,5 +1,9 @@
 package controller;
 
+import java.util.Scanner;
+
+import javax.swing.JTable;
+
 import app.AvaliadorExpressao;
 import model.SpreadsheetModel;
 import view.Spreadsheet;
@@ -16,17 +20,21 @@ public class CalcMachine {
 		SpreadsheetModel m = new SpreadsheetModel() {
 			@Override
 			public void setFormula(String cell, String formula) {
-				System.out.println(cell + " : " + formula);
+				System.out.println(cell + " : Resultado: "+av.verificar(formula));
 			}
 			
 			@Override
 			public String getValue(String cell) {
-				return String.format("%06g", av.verificar());
+				switch(cell) {
+					default:
+						return "0";
+				}
 			}
 
 			@Override
 			public String getFormula(String cell) {
-				return "Celula: " + cell;
+				
+				return  ""+cell;
 			}
 		};
 		

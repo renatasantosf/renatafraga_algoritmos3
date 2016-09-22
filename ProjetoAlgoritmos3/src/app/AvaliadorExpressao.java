@@ -13,11 +13,12 @@ public class AvaliadorExpressao {
 	
 	
 	public static void main (String[] args){
-		System.out.println(verificar());
+		
+		
 	}
-	public static String verificar() {	
-		System.out.println("Digite aí:");
-		Scanner entrada = new Scanner(texto());
+	public String verificar(String cell) {	
+
+		Scanner entrada = new Scanner(cell);
 		
 		Pilha<Double> pilha = new Pilha<>();
 		
