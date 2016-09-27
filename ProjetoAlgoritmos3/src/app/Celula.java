@@ -1,19 +1,26 @@
 package app;
 
 public class Celula {
-	private int indice;
-	private int formula;
+	private String indice;
+	private String formula;
 	private String valor;
-	public int getIndice() {
+
+        public Celula(String indice, String formula, String valor) {
+            this.indice = indice;
+            this.formula = formula;
+            this.valor = valor;
+        }
+           
+	public String getIndice() {
 		return indice;
 	}
-	public void setIndice(int indice) {
+	public void setIndice(String indice) {
 		this.indice = indice;
 	}
-	public int getFormula() {
+	public String getFormula() {
 		return formula;
 	}
-	public void setFormula(int formula) {
+	public void setFormula(String formula) {
 		this.formula = formula;
 	}
 	public String getValor() {
@@ -22,6 +29,11 @@ public class Celula {
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
+
+    @Override
+    public String toString() {
+        return "Célula: " + indice + " Fórmula: " + formula + " Resultado: " + valor;
+    }
 	
 	
 	
