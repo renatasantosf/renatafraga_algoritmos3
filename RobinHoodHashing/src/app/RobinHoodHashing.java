@@ -1,5 +1,10 @@
 package app;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+import gtfs.Route;
 
 class HashElement {
 	public final String key;
