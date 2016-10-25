@@ -24,6 +24,32 @@ public class RobinHoodHashing {
 		String[] vs = {"Rafael","Ivonei","Antonio",
 				       "Guilherme","Marcelo","Aline"};
 		
+		
+		try {
+			FileReader rotas = new FileReader("data/routes.txt");
+			Scanner ler = new Scanner(rotas).useDelimiter("[,\n]");
+			ler.nextLine(); //Pula o cabecalho do arquivo (da tabela)
+
+			while(ler.hasNext()){
+				Route rota = new Route(ler.next());
+				ler.next(); // pula agency_id
+				rota.setShortName(ler.next());
+				rota.setLongName(ler.next());
+				ler.next(); // pula desc
+				rota.setType(ler.nextInt());
+				ler.next(); // pula url
+				rota.setColor(ler.next());
+				rota.setTextColor(ler.next());
+				System.out.println(rota.getLongName());
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		for (int i = 0; i < ks.length; i++) {
 			String key = ks[i], value = vs[i];
 			System.out.println("Inserindo (" + key + " , " + value + " )");
