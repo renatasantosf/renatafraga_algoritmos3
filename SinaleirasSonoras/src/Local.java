@@ -2,11 +2,18 @@
 public class Local {
 	private String endereco;
 	private String dataImplantacao;
-	private int botoeira;
+	private String botoeira;
 	
 	
 	public Local() {
-	
+		
+	}
+
+
+	public Local(String endereco, String data, String botoeira) {
+		this.endereco = endereco;
+		this.dataImplantacao = data;
+		this.botoeira = botoeira;
 	}
 
 
@@ -30,19 +37,19 @@ public class Local {
 	}
 
 
-	public int getBotoeira() {
+	public String getBotoeira() {
 		return botoeira;
 	}
 
 
-	public void setBotoeira(int botoeira) {
-		this.botoeira = botoeira;
+	public void setBotoeira(String string) {
+		this.botoeira = string;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Local [endereco=" + endereco + ", dataImplantacao=" + dataImplantacao + ", botoeira=" + botoeira + "]";
+		return "Endereço: " + endereco + "- Data de implantação: " + dataImplantacao + " - Botoeira: " + String.valueOf(botoeira);
 	}
 	
 	

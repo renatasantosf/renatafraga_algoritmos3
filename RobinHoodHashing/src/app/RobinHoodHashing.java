@@ -36,20 +36,11 @@ public class RobinHoodHashing {
 			ler.nextLine(); //Pula o cabecalho do arquivo (da tabela)
 
 			while(ler.hasNext()){
-				Route rota = new Route(ler.next());
-				ler.next(); // pula agency_id
-				rota.setShortName(ler.next());
-				rota.setLongName(ler.next());
-				ler.next(); // pula desc
-				rota.setType(ler.nextInt());
-				ler.next(); // pula url
-				rota.setColor(ler.next());
-				rota.setTextColor(ler.next());
-				System.out.println(rota.getLongName());
+				
 			}
 			
 			
-		} catch (FileNotFoundException e) {
+		} catch (x e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -20,7 +20,7 @@ public class CidadeInteligente {
 		try {
 			FileReader rotas = new FileReader("data/routes.txt");
 			Scanner ler = new Scanner(rotas).useDelimiter("[,\n]");
-			ler.nextLine(); //Pula o cabecalho do arquivo (da tabela)
+			ler.nextLine(); 
 
 			while(ler.hasNext()){
 				Route rota = new Route(ler.next());

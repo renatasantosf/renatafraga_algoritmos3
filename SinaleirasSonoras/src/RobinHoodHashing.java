@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.KeyStore.Entry;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RobinHoodHashing<K,V> {
@@ -113,11 +115,11 @@ public class RobinHoodHashing<K,V> {
 					@SuppressWarnings("unchecked")
 					HashEntry candidate = (HashEntry)table[n];
 					if (candidate == null || candidate.distance < i) {
-						System.out.println(key + " not found after " + i + " tries.");
+						System.out.println(candidate.value.toString());
 						return null;
 					}
 					if (candidate.key.equals(key)) {
-						System.out.println(key + " found after " + i + " tries.");
+						System.out.println(candidate.value.toString());
 						return candidate;
 					}
 				}
@@ -128,37 +130,36 @@ public class RobinHoodHashing<K,V> {
 			
 			public static void main(String...args) throws FileNotFoundException {
 				RobinHoodHashing<Integer,Local> rb = new RobinHoodHashing<>();
+				
 				try {
-					FileReader locais = new FileReader("C://renatafraga_algoritmos3//SinaleirasSonoras//src//sinaleiras.txt");
+					FileReader locais = new FileReader("C:\\renatafraga_algoritmos3\\SinaleirasSonoras\\src\\sinaleiras.txt");
 					@SuppressWarnings("resource")
-					Scanner ler = new Scanner(locais).useDelimiter("[ \n]");
-					ler.nextLine(); //Pula o cabecalho do arquivo (da tabela)
+					Scanner ler = new Scanner(locais).useDelimiter("[,]");
+					
 					
 					Integer cont = 0;
 					
 					while(ler.hasNext()){
-						
-						Local local = new Local();
-						local.setEndereco(ler.next());
-						local.setDataImplantacao(ler.next());
-						//local.setBotoeira(ler.nextInt());
-						rb.put(cont, local);
-						cont++;
-						
+							
+							Local local = new Local();
+							local.setEndereco(ler.next());
+							local.setDataImplantacao(ler.next());
+							local.setBotoeira(ler.next());
+							int random = 1 + (int) (Math.random() * 300);
+							rb.put(random, local);
+							rb.get(random);
+							
 					}
 				
-					
-				} catch (FileNotFoundException e) {
-						e.printStackTrace();
-				} catch (IOException ex) {
-					ex.getMessage();
+				}catch(FileNotFoundException ef){
+					ef.printStackTrace();
 				}
+				System.out.println(rb.size());
 				
-				int contador = 0;
-				while(contador < rb.size()) {
-					System.out.println(rb.get(contador));
-					
-				}
-			
+		
 			}
-		}
+}
+				
+			
+			
+		
